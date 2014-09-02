@@ -14,22 +14,15 @@ from coord import MandlebrotCoord
 
 if __name__ == "__main__":
 
-	size = {
-		"x": 60,
-		"y": 100
-	}
-	cent = {
-		"x": 20,
-		"y": 50
-	}
+	size = {"x": 100, "y": 30}
+	cent = {"x": 35, "y": 15}
 
-	for i in range(size["x"]):
-		for j in range(size["y"]):
+	for i in range(size["y"]):
+		for j in range(size["x"]):
 			cplx = complex(
-				((cent["x"] - i) / cent["x"]),
-				((cent["y"] - j) / cent["y"])
+				(cent["x"] - j) / cent["x"],
+				(cent["y"] - i) / cent["y"]
 			)
 			m = MandlebrotCoord(cplx)
 			print(m, end="")
 		print()
-
