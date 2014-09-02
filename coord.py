@@ -1,11 +1,11 @@
 """
-MandlebrotCoord class for my Mandlebrot drawer
+MandelbrotCoord class for my Mandelbrot drawer
 Copyright (c) 2014, Tyler Philbrick
 All rights reserved
 See COPYING for license information
 """
 
-class MandlebrotCoord(object):
+class MandelbrotCoord(object):
 	def __init__(self, val: complex, perms=50, max=50):
 		self.val = val
 		self.perms = perms

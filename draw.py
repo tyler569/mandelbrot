@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Python Mandlebrot drawer
+Python Mandelbrot drawer
 Copyright (c) 2014, Tyler Philbrick
 All rights reserved
 See COPYING for license information
@@ -9,7 +9,7 @@ See COPYING for license information
 
 import os
 
-from coord import MandlebrotCoord
+from coord import MandelbrotCoord
 
 
 if __name__ == "__main__":
@@ -23,6 +23,6 @@ if __name__ == "__main__":
 				(cent["x"] - j) / cent["x"],
 				(cent["y"] - i) / cent["y"]
 			)
-			m = MandlebrotCoord(cplx)
+			m = MandelbrotCoord(cplx)
 			print(m, end="")
 		print()
