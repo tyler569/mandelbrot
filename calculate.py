@@ -9,10 +9,10 @@ See COPYING for license information
 
 import os
 
-from coord import MandelbrotCoord
+from coord import in_set
 
 
-def makeMandel(size, cent):
+def make_mandel(size, cent, perms):
 
 	for i in range(size[1]):
 		for j in range(size[0]):
@@ -20,17 +20,19 @@ def makeMandel(size, cent):
 				(cent[0] - j) / cent[0],
 				(cent[1] - i) / cent[1]
 			)
-			m = MandelbrotCoord(cplx)
-			yield m
+			ret = in_set(cplx, perms)
+			yield ret
 		yield None
 
 if __name__ == "__main__":
 	size = [100, 30]
 	cent = [35, 15]
 
-	mandel = makeMandel(size, cent)
+	mandel = make_mandel(size, cent, 50)
 	for i in mandel:
 		if i is None:
 			print()
+		elif i is True:
+			print(".", end="")
 		else:
-			print(i, end="")
+			print(" ", end="")
