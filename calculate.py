@@ -9,8 +9,6 @@ See COPYING for license information
 
 import os
 
-from coord import in_set
-
 
 def make_mandel(size, cent, perms):
 
@@ -20,9 +18,20 @@ def make_mandel(size, cent, perms):
 				(cent[0] - j) / cent[0],
 				(cent[1] - i) / cent[1]
 			)
-			ret = in_set(cplx, perms)
+			
+			z = 0
+			for perm in range(perms):
+				z = (z ** 2) + cplx
+				if abs(z) > 25:
+					ret = perm >> 6
+					break
+			else:
+				ret = 0
+
 			yield ret
 		yield None
+		print("\r", str(100 * i / size[1]) + "% complete", end="")
+			
 
 if __name__ == "__main__":
 	size = [100, 30]
